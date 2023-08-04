@@ -1,0 +1,12 @@
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\bin\Debug\net6.0\BillingSystem.Domain.deps.json
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\bin\Debug\net6.0\BillingSystem.Domain.dll
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\bin\Debug\net6.0\BillingSystem.Domain.pdb
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\obj\Debug\net6.0\BillingSystem.Domain.csproj.AssemblyReference.cache
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\obj\Debug\net6.0\BillingSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\obj\Debug\net6.0\BillingSystem.Domain.AssemblyInfoInputs.cache
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\obj\Debug\net6.0\BillingSystem.Domain.AssemblyInfo.cs
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\obj\Debug\net6.0\BillingSystem.Domain.csproj.CoreCompileInputs.cache
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\obj\Debug\net6.0\BillingSystem.Domain.dll
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\obj\Debug\net6.0\refint\BillingSystem.Domain.dll
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\obj\Debug\net6.0\BillingSystem.Domain.pdb
+C:\Users\nisat\Desktop\Sipay .Net Bootcamp\FinalCase\Sipay.NetBootcamp.FinalCase\SiteManagementBillingSystem\src\Core\BillingSystem.Domain\obj\Debug\net6.0\ref\BillingSystem.Domain.dll
