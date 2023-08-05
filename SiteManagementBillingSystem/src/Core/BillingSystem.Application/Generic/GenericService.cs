@@ -92,7 +92,7 @@ public class GenericService<TEntity, TRequest, TResponse> : IGenericService<TEnt
 
             var entity = mapper.Map<TRequest, TEntity>(request);
             entity.Id = Id;
-            entity.UpdatedDate = DateTime.UtcNow;
+
             unitOfWork.DynamicRepository<TEntity>().Update(entity);
             unitOfWork.DynamicRepository<TEntity>().Save();
 

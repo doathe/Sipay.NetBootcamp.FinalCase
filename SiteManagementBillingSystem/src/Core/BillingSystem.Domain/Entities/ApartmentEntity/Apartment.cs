@@ -13,6 +13,7 @@ public class Apartment : BaseEntity
     public int Status { get; set; } // full or empty
 
     public virtual IEnumerable<User> Users { get; set; }
+    public virtual IEnumerable<Dues> Dues { get; set; }
 }
 
 public enum Resident

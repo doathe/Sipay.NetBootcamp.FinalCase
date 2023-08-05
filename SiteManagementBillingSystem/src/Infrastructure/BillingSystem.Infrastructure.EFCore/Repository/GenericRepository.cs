@@ -53,13 +53,12 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
 
     public void Update(TEntity entity)
     {
-        //context.Set<TEntity>().Update(entity);
         var existingEntity = context.Set<TEntity>().Find(entity.Id);
+        entity.UpdatedDate = DateTime.UtcNow;
 
         if (existingEntity != null)
         {
             context.Entry(existingEntity).CurrentValues.SetValues(entity);
-            Save();
         }
     }
 
@@ -85,7 +84,7 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
     public IEnumerable<TEntity> WhereWithInclude(Expression<Func<TEntity, bool>> expression, params string[] includes)
     {
         var query = context.Set<TEntity>().AsQueryable();
-        query.Where(expression);
+        query = query.Where(expression);
         query = includes.Aggregate(query, (currenct, inc) => currenct.Include(inc));
         return query.ToList();
     }

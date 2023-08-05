@@ -21,14 +21,14 @@ public class ApartmentController : ControllerBase
     [HttpGet]
     public ResponseModel<IEnumerable<ApartmentResponse>> GetAll()
     {
-        var response = service.GetAll();
+        var response = service.GetAll("Dues");
         return response;
     }
 
     [HttpGet("{id}")]
     public ResponseModel<ApartmentResponse> Get(int id)
     {
-        var response = service.GetById(id);
+        var response = service.GetById(id, "Dues");
         return response;
     }
 

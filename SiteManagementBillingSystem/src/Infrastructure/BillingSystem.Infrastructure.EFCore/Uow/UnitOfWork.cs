@@ -4,7 +4,6 @@ namespace BillingSystem.Infrastructure.EFCore;
 public class UnitOfWork : IUnitOfWork
 {
 
-
     private readonly BillingSystemDbContext context;
     public UnitOfWork(BillingSystemDbContext context)
     {
@@ -12,6 +11,7 @@ public class UnitOfWork : IUnitOfWork
 
         UserRepository = new GenericRepository<User>(context);
         ApartmentRepository = new GenericRepository<Apartment>(context);
+        DuesRepository = new GenericRepository<Dues>(context);
     }
 
     public void Complete()
@@ -26,5 +26,6 @@ public class UnitOfWork : IUnitOfWork
 
     public IGenericRepository<User> UserRepository { get; private set; }
     public IGenericRepository<Apartment> ApartmentRepository { get; private set; }
+    public IGenericRepository<Dues> DuesRepository { get; private set; }
 }
 

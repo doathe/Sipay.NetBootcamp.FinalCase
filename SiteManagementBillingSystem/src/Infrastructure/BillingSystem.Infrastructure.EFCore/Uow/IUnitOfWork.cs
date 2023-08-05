@@ -9,4 +9,5 @@ public interface IUnitOfWork
     IGenericRepository<TEntity> DynamicRepository<TEntity>() where TEntity : BaseEntity;
     IGenericRepository<User> UserRepository { get; }
     IGenericRepository<Apartment> ApartmentRepository { get; }
+    IGenericRepository<Dues> DuesRepository { get; }
 }
