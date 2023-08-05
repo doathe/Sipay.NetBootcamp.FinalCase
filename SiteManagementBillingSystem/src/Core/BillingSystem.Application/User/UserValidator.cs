@@ -37,7 +37,7 @@ public class UserValidator : AbstractValidator<UserRequest>
             .NotNull().NotEmpty().WithMessage("Please ensure you have entered your {PropertyName}")
             .Must(BeAValidPlateNumber).WithMessage("Please ensure you have entered a valid {PropertyName} in the correct format (e.g., 34 FA 567 or 34 A 4567)");
 
-        // Role Required and IT must be User or Admin.
+        // Role Required and It must be User or Admin.
         RuleFor(user => user.Role)
             .NotNull().NotEmpty().WithMessage("Please ensure you have entered your {PropertyName}")
             .Must(role => role == "User" || role == "Admin").WithMessage("Please ensure the {PropertyName} is either 'User' or 'Admin'.");
