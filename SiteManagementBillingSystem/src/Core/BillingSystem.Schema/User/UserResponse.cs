@@ -1,4 +1,4 @@
-﻿namespace BillingSystem.Schema.User;
+﻿namespace BillingSystem.Schema;
 
 public class UserResponse
 {

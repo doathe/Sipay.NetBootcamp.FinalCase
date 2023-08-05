@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using BillingSystem.Application.Common;
-using BillingSystem.Domain.SeedWork;
-using BillingSystem.Infrastructure.EFCore.Uow;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-namespace BillingSystem.Application.Generic;
+using BillingSystem.Domain;
+using BillingSystem.Infrastructure.EFCore;
+
+namespace BillingSystem.Application;
 
 public class GenericService<TEntity, TRequest, TResponse> : IGenericService<TEntity, TRequest, TResponse> where TEntity : BaseEntity
 {

@@ -1,14 +1,13 @@
-﻿using BillingSystem.Application.Common;
-using BillingSystem.Domain.Entities.UserEntity;
-using BillingSystem.Infrastructure.EFCore.Uow;
-using BillingSystem.Schema.Token;
+﻿using BillingSystem.Domain;
+using BillingSystem.Infrastructure.EFCore;
+using BillingSystem.Schema;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace BillingSystem.Application.Token;
+namespace BillingSystem.Application;
 
 public class TokenService : ITokenService
 {
@@ -40,7 +39,11 @@ public class TokenService : ITokenService
         {
             return new ResponseModel<TokenResponse>("Invalid user informations");
         }
-        if (user.Password.ToLower() != CreateMD5(request.Password))
+        //if (user.Password.ToLower() != CreateMD5(request.Password))
+        //{
+        //    return new ResponseModel<TokenResponse>("Invalid user informations");
+        //}
+        if (user.Password.ToLower() != request.Password)
         {
             return new ResponseModel<TokenResponse>("Invalid user informations");
         }

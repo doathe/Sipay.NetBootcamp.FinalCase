@@ -1,6 +1,6 @@
-﻿using BillingSystem.Application.Generic;
-using BillingSystem.Schema.User;
-using BillingSystem.Domain.Entities.UserEntity;
+﻿using BillingSystem.Application;
+using BillingSystem.Schema;
+using BillingSystem.Domain;
 
 namespace BillingSystem.Application;
 

@@ -1,6 +1,5 @@
-﻿using BillingSystem.Application.Generic;
-using BillingSystem.Domain.Entities.ApartmentEntity;
-using BillingSystem.Schema.Apartment;
+﻿using BillingSystem.Domain;
+using BillingSystem.Schema;
 
 namespace BillingSystem.Application;
 

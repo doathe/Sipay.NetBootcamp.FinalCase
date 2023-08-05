@@ -1,8 +1,6 @@
-﻿using BillingSystem.Domain.Entities.ApartmentEntity;
-using BillingSystem.Domain.SeedWork;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BillingSystem.Domain.Entities.UserEntity;
+namespace BillingSystem.Domain;
 
 [Table("User", Schema = "dbo")]
 public class User : BaseEntity

@@ -1,11 +1,12 @@
-﻿using BillingSystem.Application.Common;
-using BillingSystem.Application;
-using BillingSystem.Schema.User;
+﻿using BillingSystem.Application;
+using BillingSystem.Schema;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using BillingSystem.Schema.Apartment;
+using System.Data;
 
-namespace BillingSystem.WebAPI.Controllers;
+namespace BillingSystem.WebAPI;
 
+[Authorize(Roles = "Admin")]
 [Route("api/[controller]s")]
 [ApiController]
 public class ApartmentController : ControllerBase

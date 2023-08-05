@@ -1,9 +1,8 @@
-﻿using BillingSystem.Application.Common;
-using BillingSystem.Application.Token;
-using BillingSystem.Schema.Token;
+﻿using BillingSystem.Application;
+using BillingSystem.Schema;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BillingSystem.WebAPI.Controllers
+namespace BillingSystem.WebAPI
 {
     [Route("api/[controller]s")]
     [ApiController]

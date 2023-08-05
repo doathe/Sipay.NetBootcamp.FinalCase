@@ -1,9 +1,8 @@
-﻿using BillingSystem.Domain.Entities.UserEntity;
+﻿using BillingSystem.Domain;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using BillingSystem.Domain.Entities.ApartmentEntity;
 
-namespace BillingSystem.Infrastructure.EFCore.Configurations.ApartmentConfiguration;
+namespace BillingSystem.Infrastructure.EFCore;
 
 // Apartment table definition
 public class ApartmentConfiguration : IEntityTypeConfiguration<Apartment>

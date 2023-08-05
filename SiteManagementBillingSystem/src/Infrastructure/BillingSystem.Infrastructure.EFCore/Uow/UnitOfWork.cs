@@ -1,10 +1,6 @@
-﻿using BillingSystem.Domain.Entities.ApartmentEntity;
-using BillingSystem.Domain.Entities.UserEntity;
-using BillingSystem.Domain.SeedWork;
-using BillingSystem.Infrastructure.EFCore.Context;
-using BillingSystem.Infrastructure.EFCore.Repository;
+﻿using BillingSystem.Domain;
 
-namespace BillingSystem.Infrastructure.EFCore.Uow;
+namespace BillingSystem.Infrastructure.EFCore;
 public class UnitOfWork : IUnitOfWork
 {
 

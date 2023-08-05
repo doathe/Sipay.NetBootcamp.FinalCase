@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using BillingSystem.Application.Generic;
-using BillingSystem.Domain.Entities.ApartmentEntity;
-using BillingSystem.Domain.Entities.UserEntity;
-using BillingSystem.Infrastructure.EFCore.Uow;
-using BillingSystem.Schema.Apartment;
-using BillingSystem.Schema.User;
+using BillingSystem.Infrastructure.EFCore;
+using BillingSystem.Schema;
+using BillingSystem.Domain;
 
 namespace BillingSystem.Application;
 

@@ -1,4 +1,4 @@
-﻿namespace BillingSystem.Schema.Token;
+﻿namespace BillingSystem.Schema;
 
 public class TokenResponse
 {

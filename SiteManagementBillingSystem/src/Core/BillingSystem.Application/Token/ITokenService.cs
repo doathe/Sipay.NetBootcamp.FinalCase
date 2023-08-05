@@ -1,7 +1,6 @@
-﻿using BillingSystem.Application.Common;
-using BillingSystem.Schema.Token;
+﻿using BillingSystem.Schema;
 
-namespace BillingSystem.Application.Token;
+namespace BillingSystem.Application;
 
 public interface ITokenService
 {

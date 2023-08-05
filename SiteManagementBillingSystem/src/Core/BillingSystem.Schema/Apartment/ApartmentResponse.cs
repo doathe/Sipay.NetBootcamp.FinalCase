@@ -1,4 +1,4 @@
-﻿namespace BillingSystem.Schema.Apartment;
+﻿namespace BillingSystem.Schema;
 
 public class ApartmentResponse
 {

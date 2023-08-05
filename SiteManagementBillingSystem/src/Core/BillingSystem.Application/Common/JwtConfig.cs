@@ -1,4 +1,4 @@
-﻿namespace BillingSystem.Application.Common;
+﻿namespace BillingSystem.Application;
 
 public class JwtConfig
 {

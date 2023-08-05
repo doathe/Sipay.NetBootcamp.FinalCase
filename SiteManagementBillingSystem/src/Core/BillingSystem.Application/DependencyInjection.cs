@@ -1,4 +1,4 @@
-﻿using BillingSystem.Application.Token;
+﻿using BillingSystem.Application;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 

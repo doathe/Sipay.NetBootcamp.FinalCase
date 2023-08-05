@@ -1,10 +1,8 @@
-﻿using BillingSystem.Domain.SeedWork;
-using BillingSystem.Infrastructure.EFCore.Context;
+﻿using BillingSystem.Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq.Expressions;
 
-namespace BillingSystem.Infrastructure.EFCore.Repository;
+namespace BillingSystem.Infrastructure.EFCore;
 
 public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
 {

@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
-using BillingSystem.Domain.Entities.ApartmentEntity;
-using BillingSystem.Domain.Entities.UserEntity;
-using BillingSystem.Schema.Apartment;
-using BillingSystem.Schema.User;
+using BillingSystem.Domain;
+using BillingSystem.Schema;
 
-namespace BillingSystem.Application.Common;
+namespace BillingSystem.Application;
 
 public class MappingProfile : Profile
 {

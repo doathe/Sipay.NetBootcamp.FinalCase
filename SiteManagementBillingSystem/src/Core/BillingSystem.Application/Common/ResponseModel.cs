@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace BillingSystem.Application.Common;
+namespace BillingSystem.Application;
 
 public partial class ResponseModel
 {

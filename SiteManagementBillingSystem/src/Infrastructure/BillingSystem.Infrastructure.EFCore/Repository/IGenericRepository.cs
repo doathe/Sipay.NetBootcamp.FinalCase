@@ -1,7 +1,7 @@
-﻿using BillingSystem.Domain.SeedWork;
+﻿using BillingSystem.Domain;
 using System.Linq.Expressions;
 
-namespace BillingSystem.Infrastructure.EFCore.Repository;
+namespace BillingSystem.Infrastructure.EFCore;
 
 public interface IGenericRepository<TEntity> where TEntity : BaseEntity
 {

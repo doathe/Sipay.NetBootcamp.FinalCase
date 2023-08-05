@@ -1,10 +1,7 @@
-﻿using BillingSystem.Domain.Entities.ApartmentEntity;
-using BillingSystem.Domain.Entities.UserEntity;
-using BillingSystem.Infrastructure.EFCore.Configurations.ApartmentConfiguration;
-using BillingSystem.Infrastructure.EFCore.Configurations.UserConfiguration;
+﻿using BillingSystem.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace BillingSystem.Infrastructure.EFCore.Context;
+namespace BillingSystem.Infrastructure.EFCore;
 
 /// Migrations = add-migration name
 /// Db update = update-database
@@ -31,7 +28,7 @@ public class BillingSystemDbContext : DbContext
         );
 
         modelBuilder.Entity<User>().HasData(
-        new User { Id = 1, FirstName = "Nisa Doğa", LastName = "Turhan", TCKNumber = "11111111111", Email = "nisatur@gmail.com", Password = "123456", Phone = "0567 456 43 43", Role = "User", ApartmentId = 1 },
+        new User { Id = 1, FirstName = "Nisa Doğa", LastName = "Turhan", TCKNumber = "11111111111", Email = "nisatur@gmail.com", Password = "123456", Phone = "0567 456 43 43", Role = "Admin", ApartmentId = 1 },
         new User { Id = 2, FirstName = "Nisa", LastName = "Turhan", TCKNumber = "22222222222", Email = "nisa@gmail.com", Password = "123456", Phone = "0567 456 43 43", Role = "User", ApartmentId = 2 },
         new User { Id = 3, FirstName = "Doğa", LastName = "Turhan", TCKNumber = "33333333333", Email = "doga@gmail.com", Password = "123456", Phone = "0567 456 43 43", Role = "User", ApartmentId = 1 }
         );

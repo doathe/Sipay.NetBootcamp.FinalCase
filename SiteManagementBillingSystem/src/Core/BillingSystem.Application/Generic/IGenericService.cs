@@ -1,6 +1,4 @@
-﻿using BillingSystem.Application.Common;
-
-namespace BillingSystem.Application.Generic;
+﻿namespace BillingSystem.Application;
 
 public interface IGenericService<TEntity, TRequest, TResponse>
 {

@@ -1,10 +1,11 @@
 ﻿using BillingSystem.Application;
-using BillingSystem.Application.Common;
-using BillingSystem.Schema.User;
+using BillingSystem.Schema;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BillingSystem.WebAPI.Controllers;
+namespace BillingSystem.WebAPI;
 
+[Authorize(Roles = "Admin")]
 [Route("api/[controller]s")]
 [ApiController]
 public class UserController : ControllerBase

@@ -1,4 +1,4 @@
-﻿namespace BillingSystem.Domain.SeedWork;
+﻿namespace BillingSystem.Domain;
 
 public class BaseEntity
 {

@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using BillingSystem.Application.Generic;
-using BillingSystem.Domain.Entities.UserEntity;
-using BillingSystem.Infrastructure.EFCore.Uow;
-using BillingSystem.Schema.User;
+using BillingSystem.Domain;
+using BillingSystem.Infrastructure.EFCore;
+using BillingSystem.Schema;
 
 namespace BillingSystem.Application;
 
@@ -16,5 +15,22 @@ public class UserService : GenericService<User, UserRequest, UserResponse>, IUse
     {
         this.mapper = mapper;
         this.unitOfWork = unitOfWork;
+    }
+
+    public override ResponseModel Create(UserRequest request)
+    {
+        try
+        {
+            var entity = mapper.Map<UserRequest, User>(request);
+            entity.Password = RandomPasswordGenerator.GenerateRandomPassword();
+            unitOfWork.DynamicRepository<User>().Create(entity);
+            unitOfWork.DynamicRepository<User>().Save();
+
+            return new ResponseModel();
+        }
+        catch (Exception ex)
+        {
+            return new ResponseModel(ex.Message);
+        }
     }
 }

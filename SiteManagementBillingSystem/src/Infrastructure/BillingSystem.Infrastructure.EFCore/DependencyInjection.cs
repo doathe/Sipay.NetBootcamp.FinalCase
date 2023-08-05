@@ -1,6 +1,4 @@
-﻿using BillingSystem.Infrastructure.EFCore.Context;
-using BillingSystem.Infrastructure.EFCore.Uow;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

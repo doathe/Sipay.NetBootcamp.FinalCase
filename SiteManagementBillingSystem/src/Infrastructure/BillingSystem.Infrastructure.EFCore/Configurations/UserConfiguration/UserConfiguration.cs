@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using BillingSystem.Domain.Entities.UserEntity;
+using BillingSystem.Domain;
 
-namespace BillingSystem.Infrastructure.EFCore.Configurations.UserConfiguration;
+namespace BillingSystem.Infrastructure.EFCore;
 
 // User table definition
 public class UserConfiguration : IEntityTypeConfiguration<User>
