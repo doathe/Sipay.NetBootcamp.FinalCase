@@ -9,7 +9,7 @@
 - Konsolda "Default Project" kısmından "BillingSystem.Infrastructure.EFCore" seçtiğinizden emin olun.
 - Migrationlarım zaten hazır olduğu için "update-database" komutunu çalıştırın.
 - Eğer hata alırsanız "BillingSystem.Infrastructure.EFCore" altındaki "Migrations" dosyasını silerek "Package Manager Console" konsoluna "add-migration initMigration" komutunu yapıştırın ve tekrar "update-database" komutunu çalıştırın.
-- Artık tek yapmanı gereken projeyi çalıştırmak.
+- Artık tek yapmanız gereken projeyi çalıştırmak.
 - "Presentation" dosyasının altında bulunan "BillingSystem.WebAPI" projesine sağ tıklayarak "Set as Startup Project" seçeneğini seçip, projeyi çalıştırın.
 
 ## Proje Hakkında
