@@ -35,25 +35,25 @@
 - Bu projeyi ödeme simülasyonu yapmak için kullandım.
 
 ## Servisler
-### UserSevice
+### UserService
 - User Service standart CRUD işlemlerini yapılmasını sağlar ancak bu işlemleri yalnız Admin rolüne sahip kullanıcılar yapabilir.
 - Kullanıcı oluşturulduğunda otomatik Password oluşturulur ve atanır.
 
-### ApartmentSevice
+### ApartmentService
 - Apartment Service standart CRUD işlemlerini yapılmasını sağlar ancak bu işlemleri yalnız Admin rolüne sahip kullanıcılar yapabilir.
 
-### TokenSevice
+### TokenService
 - Token Service içerisinde Login işlemleri ve Token generate işlemleri yapılır.
 
-### InvoiceSevice
+### InvoiceService
 - Invoice servis içerisinde yönetici dairelere fatura bilgisi girer.
 - Yönetici isterse tek tek daire idsi ile, tüm dairelere aynı anda veya toplam fatura tutarını girerek dairelere bölünmesini sağlayabilir.
 - Ayrıca yönetici tüm faturaları veya ay bazlı olarak görüntüleyebilir.
 
-### DuesSevice
+### DuesService
 - Dues servis içerisinde yönetici dairelere aidat bilgisi girer.
 - Yönetici isterse tek tek daire idsi ile veya tüm dairelere aynı anda aidat tutarını girebilir.
 - Ayrıca yönetici tüm aidatları veya ay bazlı olarak görüntüleyebilir.
 
-### PaymentSevice
+### PaymentService
 - Payment serviste ödeme yapılamk istenen tipe göre (aidat veya fatura) ödeme bilgileri sisteme eklenir.
