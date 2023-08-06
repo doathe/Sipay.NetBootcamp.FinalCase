@@ -12,8 +12,7 @@
 - Artık tek yapmanız gereken projeyi çalıştırmak.
 - "Presentation" dosyasının altında bulunan "BillingSystem.WebAPI" projesine sağ tıklayarak "Set as Startup Project" seçeneğini seçip, projeyi çalıştırın.
 
-## Proje Hakkında
-## Katmanlar
+## Proje Hakkında / Katmanlar
 ### Core / Domain
 - Bu katmanda entitylerimi tanımladım.
 - Proje içerisinde beş adet entity tanımladım, bunlarden dördü BaseEntity class'ından inherit alırken; biri özel classtır.
@@ -34,7 +33,7 @@
 ### Presentation / PaymentAPI
 - Bu projeyi ödeme simülasyonu yapmak için kullandım.
 
-## Servisler
+## Proje Hakkında / Servisler
 ### UserService
 - User Service standart CRUD işlemlerini yapılmasını sağlar ancak bu işlemleri yalnız Admin rolüne sahip kullanıcılar yapabilir.
 - Kullanıcı oluşturulduğunda otomatik Password oluşturulur ve atanır.
@@ -57,3 +56,10 @@
 
 ### PaymentService
 - Payment serviste ödeme yapılamk istenen tipe göre (aidat veya fatura) ödeme bilgileri sisteme eklenir.
+
+## Proje Hakkında / Kullanılan Teknolojiler
+- Automapper
+- FluentValidation
+- Entity Framework Core
+- JWT Bearer
+- Postgres
