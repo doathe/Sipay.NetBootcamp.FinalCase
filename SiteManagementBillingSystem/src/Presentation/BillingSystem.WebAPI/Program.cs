@@ -42,6 +42,7 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<JwtHelper>();
+builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
 
 // Dependency Injection
 builder.Services.AddEFCoreDependencyInjection(config);
@@ -84,6 +85,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseRouting();
 app.UseAuthorization();
+app.UsecustomExceptionMiddle();
 
 app.MapControllers();
 
