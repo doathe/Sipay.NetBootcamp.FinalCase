@@ -7,7 +7,7 @@
 - Sonrasında pgAdmin4'ü açarak "SiteManagementBillingSystemDB" adında bir database oluşturun.
 - Ardından projeye gelerek "Tools > NuGet Package Manager > Package Manager Console" açın
 - Konsolda "Default Project" kısmından "BillingSystem.Infrastructure.EFCore" seçtiğinizden emin olun.
-- Migrationlarım zaten hazır olduğu için "update-database" komutunu çalıştırın.
+- Migrationlarım zaten hazır olduğu için “`update-database“` komutunu çalıştırın.
 - Eğer hata alırsanız "BillingSystem.Infrastructure.EFCore" altındaki "Migrations" dosyasını silerek "Package Manager Console" konsoluna "add-migration initMigration" komutunu yapıştırın ve tekrar "update-database" komutunu çalıştırın.
 - Artık tek yapmanız gereken projeyi çalıştırmak.
 - "Presentation" dosyasının altında bulunan "BillingSystem.WebAPI" projesine sağ tıklayarak "Set as Startup Project" seçeneğini seçip, projeyi çalıştırın.
