@@ -8,7 +8,7 @@
 - Ardından projeye gelerek "Tools > NuGet Package Manager > Package Manager Console" açın
 - Konsolda "Default Project" kısmından "BillingSystem.Infrastructure.EFCore" seçtiğinizden emin olun.
 - Migrationlarım zaten hazır olduğu için “`update-database“` komutunu çalıştırın.
-- Eğer hata alırsanız "BillingSystem.Infrastructure.EFCore" altındaki "Migrations" dosyasını silerek "Package Manager Console" konsoluna "add-migration initMigration" komutunu yapıştırın ve tekrar "update-database" komutunu çalıştırın.
+- Eğer hata alırsanız "BillingSystem.Infrastructure.EFCore" altındaki "Migrations" dosyasını silerek "Package Manager Console" konsoluna “`add-migration initMigration“` komutunu yapıştırın ve tekrar “`update-database“` komutunu çalıştırın.
 - Artık tek yapmanız gereken projeyi çalıştırmak.
 - "Presentation" dosyasının altında bulunan "BillingSystem.WebAPI" projesine sağ tıklayarak "Set as Startup Project" seçeneğini seçip, projeyi çalıştırın.
 
@@ -33,3 +33,27 @@
 
 ### Presentation / PaymentAPI
 - Bu projeyi ödeme simülasyonu yapmak için kullandım.
+
+## Servisler
+### UserSevice
+- User Service standart CRUD işlemlerini yapılmasını sağlar ancak bu işlemleri yalnız Admin rolüne sahip kullanıcılar yapabilir.
+- Kullanıcı oluşturulduğunda otomatik Password oluşturulur ve atanır.
+
+### ApartmentSevice
+- Apartment Service standart CRUD işlemlerini yapılmasını sağlar ancak bu işlemleri yalnız Admin rolüne sahip kullanıcılar yapabilir.
+
+### TokenSevice
+- Token Service içerisinde Login işlemleri ve Token generate işlemleri yapılır.
+
+### InvoiceSevice
+- Invoice servis içerisinde yönetici dairelere fatura bilgisi girer.
+- Yönetici isterse tek tek daire idsi ile, tüm dairelere aynı anda veya toplam fatura tutarını girerek dairelere bölünmesini sağlayabilir.
+- Ayrıca yönetici tüm faturaları veya ay bazlı olarak görüntüleyebilir.
+
+### DuesSevice
+- Dues servis içerisinde yönetici dairelere aidat bilgisi girer.
+- Yönetici isterse tek tek daire idsi ile veya tüm dairelere aynı anda aidat tutarını girebilir.
+- Ayrıca yönetici tüm aidatları veya ay bazlı olarak görüntüleyebilir.
+
+### PaymentSevice
+- Payment serviste ödeme yapılamk istenen tipe göre (aidat veya fatura) ödeme bilgileri sisteme eklenir.
