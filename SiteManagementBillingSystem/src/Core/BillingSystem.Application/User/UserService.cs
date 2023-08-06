@@ -33,4 +33,23 @@ public class UserService : GenericService<User, UserRequest, UserResponse>, IUse
             return new ResponseModel(ex.Message);
         }
     }
+    public override ResponseModel Update(int Id, UserRequest request)
+    {
+        try
+        {
+            var entity = mapper.Map<UserRequest, User>(request);
+            var existingEntity = unitOfWork.DynamicRepository<User>().GetById(Id);
+            entity.Id = Id;
+            entity.Password = existingEntity.Password;
+
+            unitOfWork.DynamicRepository<User>().Update(entity);
+            unitOfWork.DynamicRepository<User>().Save();
+
+            return new ResponseModel();
+        }
+        catch (Exception ex)
+        {
+            return new ResponseModel(ex.Message);
+        }
+    }
 }

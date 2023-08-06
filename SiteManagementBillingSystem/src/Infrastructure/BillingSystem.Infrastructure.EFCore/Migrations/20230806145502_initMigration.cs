@@ -45,10 +45,10 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Month = table.Column<string>(type: "text", nullable: false),
-                    Year = table.Column<int>(type: "integer", nullable: false),
-                    Amounth = table.Column<decimal>(type: "numeric", nullable: false),
-                    DuesPaymentStatus = table.Column<int>(type: "integer", nullable: false),
+                    Month = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Year = table.Column<int>(type: "integer", maxLength: 50, nullable: false),
+                    Amounth = table.Column<decimal>(type: "numeric", maxLength: 50, nullable: false),
+                    DuesPaymentStatus = table.Column<int>(type: "integer", nullable: false, defaultValue: 0),
                     ApartmentId = table.Column<int>(type: "integer", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
@@ -62,7 +62,35 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                         principalSchema: "dbo",
                         principalTable: "Apartment",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Invoice",
+                schema: "dbo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Month = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Year = table.Column<int>(type: "integer", maxLength: 50, nullable: false),
+                    Amounth = table.Column<decimal>(type: "numeric", maxLength: 50, nullable: false),
+                    InvoiceType = table.Column<int>(type: "integer", nullable: false),
+                    InvoicePaymentStatus = table.Column<int>(type: "integer", nullable: false, defaultValue: 0),
+                    ApartmentId = table.Column<int>(type: "integer", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Invoice", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Invoice_Apartment_ApartmentId",
+                        column: x => x.ApartmentId,
+                        principalSchema: "dbo",
+                        principalTable: "Apartment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -102,23 +130,34 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                 columns: new[] { "Id", "Block", "CreatedDate", "Floor", "Number", "Resident", "Status", "Type", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, "A", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1, 1, "2+1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, "A", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, 2, 1, "2+1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, "A", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 3, 1, 0, "3+1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, "A", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 4, 1, 0, "3+1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 5, "A", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 5, 1, 0, "3+1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 6, "A", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 6, 1, 0, "3+1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, "A", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(128), 1, 1, 1, 1, "2+1", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(131) },
+                    { 2, "A", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(134), 1, 2, 2, 1, "2+1", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(134) },
+                    { 3, "A", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(136), 2, 3, 1, 0, "3+1", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(137) },
+                    { 4, "A", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(138), 2, 4, 1, 0, "3+1", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(139) },
+                    { 5, "A", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(140), 3, 5, 1, 0, "3+1", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(141) },
+                    { 6, "A", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(143), 3, 6, 1, 0, "3+1", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(143) }
                 });
 
             migrationBuilder.InsertData(
                 schema: "dbo",
                 table: "Dues",
-                columns: new[] { "Id", "Amounth", "ApartmentId", "CreatedDate", "DuesPaymentStatus", "Month", "UpdatedDate", "Year" },
+                columns: new[] { "Id", "Amounth", "ApartmentId", "CreatedDate", "Month", "UpdatedDate", "Year" },
                 values: new object[,]
                 {
-                    { 1, 200m, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "July", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2023 },
-                    { 2, 200m, 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "July", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2023 },
-                    { 3, 200m, 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "July", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2023 }
+                    { 1, 200m, 1, new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(491), "July", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(491), 2023 },
+                    { 2, 200m, 2, new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(494), "July", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(494), 2023 },
+                    { 3, 200m, 3, new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(496), "July", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(496), 2023 }
+                });
+
+            migrationBuilder.InsertData(
+                schema: "dbo",
+                table: "Invoice",
+                columns: new[] { "Id", "Amounth", "ApartmentId", "CreatedDate", "InvoiceType", "Month", "UpdatedDate", "Year" },
+                values: new object[,]
+                {
+                    { 1, 200m, 1, new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(515), 1, "July", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(516), 2023 },
+                    { 2, 200m, 2, new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(518), 2, "July", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(519), 2023 },
+                    { 3, 200m, 3, new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(520), 3, "July", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(521), 2023 }
                 });
 
             migrationBuilder.InsertData(
@@ -127,9 +166,9 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                 columns: new[] { "Id", "ApartmentId", "CarPlateNumber", "CreatedDate", "Email", "FirstName", "LastName", "Password", "Phone", "Role", "TCKNumber", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "nisatur@gmail.com", "Nisa Doğa", "Turhan", "123456", "0567 456 43 43", "Admin", "11111111111", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, 2, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "nisa@gmail.com", "Nisa", "Turhan", "123456", "0567 456 43 43", "User", "22222222222", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "doga@gmail.com", "Doğa", "Turhan", "123456", "0567 456 43 43", "User", "33333333333", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, 1, null, new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(336), "admin@gmail.com", "Admin", "Admin", "admin", "0567 456 43 43", "Admin", "11111111111", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(337) },
+                    { 2, 2, null, new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(340), "nisa@gmail.com", "Nisa", "Turhan", "123456", "0567 456 43 43", "User", "22222222222", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(340) },
+                    { 3, 1, null, new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(460), "doga@gmail.com", "Doğa", "Turhan", "123456", "0567 456 43 43", "User", "33333333333", new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(461) }
                 });
 
             migrationBuilder.CreateIndex(
@@ -144,6 +183,26 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                 schema: "dbo",
                 table: "Dues",
                 column: "ApartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Dues_Id",
+                schema: "dbo",
+                table: "Dues",
+                column: "Id",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Invoice_ApartmentId",
+                schema: "dbo",
+                table: "Invoice",
+                column: "ApartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Invoice_Id",
+                schema: "dbo",
+                table: "Invoice",
+                column: "Id",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_User_ApartmentId",
@@ -164,6 +223,10 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Dues",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
+                name: "Invoice",
                 schema: "dbo");
 
             migrationBuilder.DropTable(

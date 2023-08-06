@@ -14,6 +14,7 @@ public class Apartment : BaseEntity
 
     public virtual IEnumerable<User> Users { get; set; }
     public virtual IEnumerable<Dues> Dues { get; set; }
+    public virtual IEnumerable<Invoice> Invoices { get; set; }
 }
 
 public enum Resident

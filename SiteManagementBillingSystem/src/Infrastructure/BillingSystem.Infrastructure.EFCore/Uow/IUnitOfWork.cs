@@ -10,4 +10,5 @@ public interface IUnitOfWork
     IGenericRepository<User> UserRepository { get; }
     IGenericRepository<Apartment> ApartmentRepository { get; }
     IGenericRepository<Dues> DuesRepository { get; }
+    IGenericRepository<Invoice> InvoiceRepository { get; }
 }

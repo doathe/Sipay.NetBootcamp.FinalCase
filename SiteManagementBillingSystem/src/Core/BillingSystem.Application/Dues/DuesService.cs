@@ -10,18 +10,16 @@ public class DuesService : IDuesService
 {
     private readonly IUnitOfWork unitOfWork;
     private readonly IMapper mapper;
-    private readonly IApartmentService apartmentService;
     private readonly BillingSystemDbContext context;
 
-    public DuesService(IUnitOfWork unitOfWork, IMapper mapper, IApartmentService apartmentService, BillingSystemDbContext context)
+    public DuesService(IUnitOfWork unitOfWork, IMapper mapper, BillingSystemDbContext context)
     {
         this.unitOfWork = unitOfWork;
         this.mapper = mapper;
-        this.apartmentService = apartmentService;
         this.context = context;
     }
 
-    public ResponseModel CreateAll(DuesRequest request)
+    public ResponseModel CreateForAll(DuesRequest request)
     {
         try
         {
@@ -47,12 +45,11 @@ public class DuesService : IDuesService
     {
         try
         {
-            var entity = mapper.Map<DuesRequest, Dues>(request);
+            var entity = mapper.Map<Dues>(request);
             entity.ApartmentId = id;
 
             unitOfWork.DynamicRepository<Dues>().Create(entity);
             unitOfWork.DynamicRepository<Dues>().Save();
-
 
             return new ResponseModel();
         }

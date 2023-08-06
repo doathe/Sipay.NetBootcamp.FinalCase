@@ -13,5 +13,6 @@ public static class DependencyInjection
         services.AddScoped<IApartmentService, ApartmentService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IDuesService, DuesService>();
+        services.AddScoped<IInvoiceService, InvoiceService>();
     }
 }
