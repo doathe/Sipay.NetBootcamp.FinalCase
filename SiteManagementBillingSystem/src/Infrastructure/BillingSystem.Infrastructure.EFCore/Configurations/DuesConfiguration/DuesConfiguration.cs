@@ -18,7 +18,7 @@ public class DuesConfiguration : IEntityTypeConfiguration<Dues>
 
         builder.Property(e => e.Month).IsRequired(true).HasMaxLength(50);
         builder.Property(e => e.Year).IsRequired(true).HasMaxLength(50);
-        builder.Property(e => e.Amounth).IsRequired(true).HasMaxLength(50);
+        builder.Property(e => e.Amount).IsRequired(true).HasMaxLength(50);
         builder.Property(e => e.DuesPaymentStatus).IsRequired(true).HasDefaultValue(0);
 
         builder.HasOne(e => e.Apartment)

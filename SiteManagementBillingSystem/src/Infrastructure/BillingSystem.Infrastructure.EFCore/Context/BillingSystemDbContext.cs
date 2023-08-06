@@ -14,6 +14,7 @@ public class BillingSystemDbContext : DbContext
     public DbSet<Apartment> Apartments { get; set; }
     public DbSet<Dues> Dues { get; set; }
     public DbSet<Invoice> Invoices { get; set; }
+    public DbSet<Payment> Payments { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -22,6 +23,7 @@ public class BillingSystemDbContext : DbContext
         modelBuilder.ApplyConfiguration(new ApartmentConfiguration());
         modelBuilder.ApplyConfiguration(new DuesConfiguration());
         modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
+        modelBuilder.ApplyConfiguration(new PaymentConfiguration());
 
         base.OnModelCreating(modelBuilder);
 
@@ -41,15 +43,15 @@ public class BillingSystemDbContext : DbContext
         );
 
         modelBuilder.Entity<Dues>().HasData(
-        new Dues { Id = 1, Month = "July", Year = 2023, Amounth = 200, DuesPaymentStatus = 0, ApartmentId = 1, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow },
-        new Dues { Id = 2, Month = "July", Year = 2023, Amounth = 200, DuesPaymentStatus = 0, ApartmentId = 2, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow },
-        new Dues { Id = 3, Month = "July", Year = 2023, Amounth = 200, DuesPaymentStatus = 0, ApartmentId = 3, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow }
+        new Dues { Id = 1, Month = "July", Year = 2023, Amount = 200, DuesPaymentStatus = 0, ApartmentId = 1, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow },
+        new Dues { Id = 2, Month = "July", Year = 2023, Amount = 200, DuesPaymentStatus = 0, ApartmentId = 2, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow },
+        new Dues { Id = 3, Month = "July", Year = 2023, Amount = 200, DuesPaymentStatus = 0, ApartmentId = 3, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow }
         );
 
         modelBuilder.Entity<Invoice>().HasData(
-        new Invoice { Id = 1, Month = "July", Year = 2023, Amounth = 200, InvoiceType = 1, InvoicePaymentStatus = 0, ApartmentId = 1, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow },
-        new Invoice { Id = 2, Month = "July", Year = 2023, Amounth = 200, InvoiceType = 2, InvoicePaymentStatus = 0, ApartmentId = 2, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow },
-        new Invoice { Id = 3, Month = "July", Year = 2023, Amounth = 200, InvoiceType = 3, InvoicePaymentStatus = 0, ApartmentId = 3, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow }
+        new Invoice { Id = 1, Month = "July", Year = 2023, Amount = 200, InvoiceType = 1, InvoicePaymentStatus = 0, ApartmentId = 1, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow },
+        new Invoice { Id = 2, Month = "July", Year = 2023, Amount = 200, InvoiceType = 2, InvoicePaymentStatus = 0, ApartmentId = 2, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow },
+        new Invoice { Id = 3, Month = "July", Year = 2023, Amount = 200, InvoiceType = 3, InvoicePaymentStatus = 0, ApartmentId = 3, CreatedDate = DateTime.UtcNow, UpdatedDate = DateTime.UtcNow }
         );
 
     }

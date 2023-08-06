@@ -16,4 +16,6 @@ public class User : BaseEntity
 
     public int ApartmentId { get; set; }
     public Apartment Apartment { get; set; }
+
+    public virtual IEnumerable<Payment> Payments { get; set; }
 }

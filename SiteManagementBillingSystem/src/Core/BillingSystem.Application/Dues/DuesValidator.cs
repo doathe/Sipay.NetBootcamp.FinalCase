@@ -19,7 +19,7 @@ public class DuesValidator : AbstractValidator<DuesRequest>
                 .Must(BeAValidYear).WithMessage("Please ensure you have entered a valid 4-digit year");
 
         // Amounth Required and it's length must greater than 0.
-        RuleFor(x => x.Amounth)
+        RuleFor(x => x.Amount)
                 .NotNull().NotEmpty().WithMessage("Please ensure you have entered your {PropertyName}")
                 .GreaterThan(0).WithMessage("Please ensure you have entered your {PropertyName} greater than 0");
     }

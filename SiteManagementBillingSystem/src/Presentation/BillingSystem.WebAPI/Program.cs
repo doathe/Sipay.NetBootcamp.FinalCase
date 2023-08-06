@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using FluentValidation.AspNetCore;
+using BillingSystem.WebAPI;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -38,6 +39,9 @@ builder.Services.AddSwaggerGen(c =>
                 {securityScheme, new string[] { }}
             });
 });
+
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<JwtHelper>();
 
 // Dependency Injection
 builder.Services.AddEFCoreDependencyInjection(config);

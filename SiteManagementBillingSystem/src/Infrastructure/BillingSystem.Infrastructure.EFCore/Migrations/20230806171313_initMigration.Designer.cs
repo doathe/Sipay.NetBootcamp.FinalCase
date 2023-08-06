@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BillingSystem.Infrastructure.EFCore.Migrations
 {
     [DbContext(typeof(BillingSystemDbContext))]
-    [Migration("20230806145502_initMigration")]
+    [Migration("20230806171313_initMigration")]
     partial class initMigration
     {
         /// <inheritdoc />
@@ -77,73 +77,73 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                         {
                             Id = 1,
                             Block = "A",
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(128),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6786),
                             Floor = 1,
                             Number = 1,
                             Resident = 1,
                             Status = 1,
                             Type = "2+1",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(131)
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6788)
                         },
                         new
                         {
                             Id = 2,
                             Block = "A",
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(134),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6790),
                             Floor = 1,
                             Number = 2,
                             Resident = 2,
                             Status = 1,
                             Type = "2+1",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(134)
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6791)
                         },
                         new
                         {
                             Id = 3,
                             Block = "A",
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(136),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6792),
                             Floor = 2,
                             Number = 3,
                             Resident = 1,
                             Status = 0,
                             Type = "3+1",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(137)
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6793)
                         },
                         new
                         {
                             Id = 4,
                             Block = "A",
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(138),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6794),
                             Floor = 2,
                             Number = 4,
                             Resident = 1,
                             Status = 0,
                             Type = "3+1",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(139)
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6795)
                         },
                         new
                         {
                             Id = 5,
                             Block = "A",
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(140),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6796),
                             Floor = 3,
                             Number = 5,
                             Resident = 1,
                             Status = 0,
                             Type = "3+1",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(141)
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6796)
                         },
                         new
                         {
                             Id = 6,
                             Block = "A",
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(143),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6798),
                             Floor = 3,
                             Number = 6,
                             Resident = 1,
                             Status = 0,
                             Type = "3+1",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(143)
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6798)
                         });
                 });
 
@@ -155,7 +155,7 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("Amounth")
+                    b.Property<decimal>("Amount")
                         .HasMaxLength(50)
                         .HasColumnType("numeric");
 
@@ -175,6 +175,9 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
+                    b.Property<int?>("PaymentId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -189,40 +192,43 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                     b.HasIndex("Id")
                         .IsUnique();
 
+                    b.HasIndex("PaymentId")
+                        .IsUnique();
+
                     b.ToTable("Dues", "dbo");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Amounth = 200m,
+                            Amount = 200m,
                             ApartmentId = 1,
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(491),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6992),
                             DuesPaymentStatus = 0,
                             Month = "July",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(491),
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6992),
                             Year = 2023
                         },
                         new
                         {
                             Id = 2,
-                            Amounth = 200m,
+                            Amount = 200m,
                             ApartmentId = 2,
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(494),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6994),
                             DuesPaymentStatus = 0,
                             Month = "July",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(494),
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6995),
                             Year = 2023
                         },
                         new
                         {
                             Id = 3,
-                            Amounth = 200m,
+                            Amount = 200m,
                             ApartmentId = 3,
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(496),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6996),
                             DuesPaymentStatus = 0,
                             Month = "July",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(496),
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6996),
                             Year = 2023
                         });
                 });
@@ -235,7 +241,7 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("Amounth")
+                    b.Property<decimal>("Amount")
                         .HasMaxLength(50)
                         .HasColumnType("numeric");
 
@@ -258,6 +264,9 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
+                    b.Property<int?>("PaymentId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -272,45 +281,86 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                     b.HasIndex("Id")
                         .IsUnique();
 
+                    b.HasIndex("PaymentId")
+                        .IsUnique();
+
                     b.ToTable("Invoice", "dbo");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Amounth = 200m,
+                            Amount = 200m,
                             ApartmentId = 1,
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(515),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(7015),
                             InvoicePaymentStatus = 0,
                             InvoiceType = 1,
                             Month = "July",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(516),
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(7015),
                             Year = 2023
                         },
                         new
                         {
                             Id = 2,
-                            Amounth = 200m,
+                            Amount = 200m,
                             ApartmentId = 2,
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(518),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(7017),
                             InvoicePaymentStatus = 0,
                             InvoiceType = 2,
                             Month = "July",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(519),
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(7018),
                             Year = 2023
                         },
                         new
                         {
                             Id = 3,
-                            Amounth = 200m,
+                            Amount = 200m,
                             ApartmentId = 3,
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(520),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(7019),
                             InvoicePaymentStatus = 0,
                             InvoiceType = 3,
                             Month = "July",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(521),
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(7020),
                             Year = 2023
                         });
+                });
+
+            modelBuilder.Entity("BillingSystem.Domain.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTime>("Date")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValue(new DateTime(2023, 8, 6, 17, 13, 13, 241, DateTimeKind.Utc).AddTicks(8098));
+
+                    b.Property<int?>("DuesId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("InvoiceId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("PaymentType")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Payment", "dbo");
                 });
 
             modelBuilder.Entity("BillingSystem.Domain.User", b =>
@@ -383,7 +433,7 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                         {
                             Id = 1,
                             ApartmentId = 1,
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(336),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6966),
                             Email = "admin@gmail.com",
                             FirstName = "Admin",
                             LastName = "Admin",
@@ -391,13 +441,13 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                             Phone = "0567 456 43 43",
                             Role = "Admin",
                             TCKNumber = "11111111111",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(337)
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6966)
                         },
                         new
                         {
                             Id = 2,
                             ApartmentId = 2,
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(340),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6969),
                             Email = "nisa@gmail.com",
                             FirstName = "Nisa",
                             LastName = "Turhan",
@@ -405,13 +455,13 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                             Phone = "0567 456 43 43",
                             Role = "User",
                             TCKNumber = "22222222222",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(340)
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6969)
                         },
                         new
                         {
                             Id = 3,
                             ApartmentId = 1,
-                            CreatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(460),
+                            CreatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6971),
                             Email = "doga@gmail.com",
                             FirstName = "Doğa",
                             LastName = "Turhan",
@@ -419,7 +469,7 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                             Phone = "0567 456 43 43",
                             Role = "User",
                             TCKNumber = "33333333333",
-                            UpdatedDate = new DateTime(2023, 8, 6, 14, 55, 2, 346, DateTimeKind.Utc).AddTicks(461)
+                            UpdatedDate = new DateTime(2023, 8, 6, 17, 13, 13, 242, DateTimeKind.Utc).AddTicks(6972)
                         });
                 });
 
@@ -431,7 +481,14 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("BillingSystem.Domain.Payment", "Payment")
+                        .WithOne("Dues")
+                        .HasForeignKey("BillingSystem.Domain.Dues", "PaymentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.Navigation("Apartment");
+
+                    b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("BillingSystem.Domain.Invoice", b =>
@@ -442,7 +499,25 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("BillingSystem.Domain.Payment", "Payment")
+                        .WithOne("Invoice")
+                        .HasForeignKey("BillingSystem.Domain.Invoice", "PaymentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.Navigation("Apartment");
+
+                    b.Navigation("Payment");
+                });
+
+            modelBuilder.Entity("BillingSystem.Domain.Payment", b =>
+                {
+                    b.HasOne("BillingSystem.Domain.User", "User")
+                        .WithMany("Payments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BillingSystem.Domain.User", b =>
@@ -463,6 +538,18 @@ namespace BillingSystem.Infrastructure.EFCore.Migrations
                     b.Navigation("Invoices");
 
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("BillingSystem.Domain.Payment", b =>
+                {
+                    b.Navigation("Dues");
+
+                    b.Navigation("Invoice");
+                });
+
+            modelBuilder.Entity("BillingSystem.Domain.User", b =>
+                {
+                    b.Navigation("Payments");
                 });
 #pragma warning restore 612, 618
         }

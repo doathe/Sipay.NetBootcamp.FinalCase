@@ -7,12 +7,14 @@ public class Invoice : BaseEntity
 {
     public string Month { get; set; }
     public int Year { get; set; }
-    public decimal Amounth { get; set; }
+    public decimal Amount { get; set; }
     public int InvoiceType { get; set; }
     public int InvoicePaymentStatus { get; set; }
 
     public int ApartmentId { get; set; }
     public Apartment Apartment { get; set; }
+    public int? PaymentId { get; set; }
+    public Payment? Payment { get; set; }
 }
 
 public enum InvoicePaymentStatus

@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\BillingSystem.Application\BillingSystem.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\BillingSystem.Infrastructure.EFCore\BillingSystem.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\BillingSystem.PaymentAPI\BillingSystem.PaymentAPI.csproj" />
   </ItemGroup>
 
 </Project>

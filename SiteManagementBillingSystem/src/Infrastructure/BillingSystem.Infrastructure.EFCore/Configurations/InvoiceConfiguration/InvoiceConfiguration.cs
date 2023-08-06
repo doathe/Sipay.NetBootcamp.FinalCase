@@ -18,7 +18,7 @@ public class InvoiceConfiguration : IEntityTypeConfiguration<Invoice>
 
         builder.Property(e => e.Month).IsRequired(true).HasMaxLength(50);
         builder.Property(e => e.Year).IsRequired(true).HasMaxLength(50);
-        builder.Property(e => e.Amounth).IsRequired(true).HasMaxLength(50);
+        builder.Property(e => e.Amount).IsRequired(true).HasMaxLength(50);
         builder.Property(e => e.InvoiceType).IsRequired(true);
         builder.Property(e => e.InvoicePaymentStatus).IsRequired(true).HasDefaultValue(0);
 

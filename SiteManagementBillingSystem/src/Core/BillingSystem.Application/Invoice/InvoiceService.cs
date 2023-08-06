@@ -46,7 +46,7 @@ public class InvoiceService : IInvoiceService
         try
         {
             var apartments = context.Set<Apartment>().ToList();
-            request.Amounth = request.Amounth / apartments.Count();
+            request.Amount = request.Amount / apartments.Count();
 
             foreach (Apartment apartment in apartments)
             {

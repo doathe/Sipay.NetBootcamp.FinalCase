@@ -30,5 +30,9 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.InvoiceType, opt => opt.MapFrom(src => Enum.GetName(typeof(InvoiceType), src.InvoiceType)))
             .ForMember(dest => dest.Status, opt => opt.MapFrom(src => Enum.GetName(typeof(InvoicePaymentStatus), src.InvoicePaymentStatus)))
             .ForMember(dest => dest.Apartment, opt => opt.MapFrom(src => src.Apartment.Block + " Block - No " + src.Apartment.Number));
+
+        CreateMap<Payment, BasePaymentResponse>()
+            .ForMember(dest => dest.PaymentType, opt => opt.MapFrom(src => Enum.GetName(typeof(PaymentType), src.PaymentType)))
+            .ForMember(dest => dest.User, opt => opt.MapFrom(src => src.User.FirstName + " " + src.User.LastName));
     }
 }

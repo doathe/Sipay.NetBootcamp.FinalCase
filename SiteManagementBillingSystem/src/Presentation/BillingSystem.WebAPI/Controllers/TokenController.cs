@@ -2,24 +2,23 @@
 using BillingSystem.Schema;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BillingSystem.WebAPI
+namespace BillingSystem.WebAPI;
+
+[Route("api/[controller]s")]
+[ApiController]
+public class TokenController : ControllerBase
 {
-    [Route("api/[controller]s")]
-    [ApiController]
-    public class TokenController : ControllerBase
+    private readonly ITokenService service;
+
+    public TokenController(ITokenService service)
     {
-        private readonly ITokenService service;
+        this.service = service;
+    }
 
-        public TokenController(ITokenService service)
-        {
-            this.service = service;
-        }
-
-        [HttpPost("Login")]
-        public ResponseModel<TokenResponse> Post([FromBody] TokenRequest request)
-        {
-            var response = service.Login(request);
-            return response;
-        }
+    [HttpPost("Login")]
+    public ResponseModel<TokenResponse> Post([FromBody] TokenRequest request)
+    {
+        var response = service.Login(request);
+        return response;
     }
 }
