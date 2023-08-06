@@ -45,17 +45,17 @@
 - Token Service içerisinde Login işlemleri ve Token generate işlemleri yapılır.
 
 ### InvoiceService
-- Invoice servis içerisinde yönetici dairelere fatura bilgisi girer.
+- Invoice Service içerisinde yönetici dairelere fatura bilgisi girer.
 - Yönetici isterse tek tek daire idsi ile, tüm dairelere aynı anda veya toplam fatura tutarını girerek dairelere bölünmesini sağlayabilir.
 - Ayrıca yönetici tüm faturaları veya ay bazlı olarak görüntüleyebilir.
 
 ### DuesService
-- Dues servis içerisinde yönetici dairelere aidat bilgisi girer.
+- Dues Service içerisinde yönetici dairelere aidat bilgisi girer.
 - Yönetici isterse tek tek daire idsi ile veya tüm dairelere aynı anda aidat tutarını girebilir.
 - Ayrıca yönetici tüm aidatları veya ay bazlı olarak görüntüleyebilir.
 
 ### PaymentService
-- Payment serviste ödeme yapılamk istenen tipe göre (aidat veya fatura) ödeme bilgileri sisteme eklenir.
+- Payment Service içerisinde, ödeme yapılamak istenen tipe göre (aidat veya fatura) ödeme bilgileri sisteme eklenir.
 
 ## Proje Hakkında / Kullanılan Teknolojiler
 - Automapper
